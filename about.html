@@ -21,13 +21,13 @@
         <section>
             <h1>About Me</h1> <!-- Main heading for the About page -->
             <div class="about-content">
-                <img src="your-photo.jpg" alt="Photo of Jillian McDonald" class="profile-photo" id="profile-photo"> <!-- Replace 'your-photo.jpg' with the actual file name of your image -->
+                <!-- Add your image here -->
+                <img src="images/jillian-photo.jpg" alt="Photo of Jillian McDonald" class="profile-photo"> <!-- Update the src with your image file name and path -->
+                
                 <div class="bio">
                     <p>Hi, I’m Jillian McDonald, born and raised in Marietta, Georgia. I’m currently a third-year Information Technology student at Kennesaw State University. My passion for technology started at a young age and has only grown stronger as I’ve gained experience with various programming languages such as JavaScript, Python, HTML, and CSS.</p>
                     <p>I’ve spent the last few years honing my skills in web development, focusing on creating responsive and user-friendly websites. My goal is to work with startups after graduation, using technology to solve real-world problems.</p>
                     <p>In my spare time, I enjoy exploring new technologies, contributing to open-source projects, and staying up-to-date with the latest trends in IT. I look forward to a future where I can contribute my knowledge and skills to make a positive impact in the tech world.</p>
-                    <button id="more-info">Click for More Info</button> <!-- Button to trigger JavaScript -->
-                    <p id="extra-info" style="display:none;">I’m also interested in artificial intelligence and machine learning, and I’ve recently started experimenting with integrating AI into web applications. It’s an exciting field with a lot of potential!</p> <!-- Hidden info to display after click -->
                 </div>
             </div>
         </section>
@@ -36,20 +36,5 @@
     <footer>
         <p>&copy; 2024 Jillian McDonald. All rights reserved.</p>
     </footer>
-
-    <!-- JavaScript code to reveal extra information when the button is clicked -->
-    <script>
-        // Access the button and hidden extra info paragraph
-        document.getElementById('more-info').onclick = function() {
-            var extraInfo = document.getElementById('extra-info');
-            
-            // Toggle the display of extra info
-            if (extraInfo.style.display === 'none') {
-                extraInfo.style.display = 'block'; // Show extra info
-            } else {
-                extraInfo.style.display = 'none'; // Hide extra info
-            }
-        }
-    </script>
 </body>
 </html>
