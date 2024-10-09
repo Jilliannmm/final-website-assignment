@@ -58,3 +58,10 @@ footer {
     width: 100%;
     bottom: 0;
 }
+.profile-photo {
+    width: 150px; /* Makes the image 150px wide */
+    height: auto; /* Keeps the aspect ratio */
+    border-radius: 50%; /* Makes the image circular */
+    margin: 20px 0; /* Adds some space around the image */
+}
+
