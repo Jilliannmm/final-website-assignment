@@ -22,11 +22,20 @@
             <h1>Welcome to My Portfolio!</h1> <!-- Main heading -->
             <p>Hi, I’m Jillian McDonald, a student at Kennesaw State University pursuing a degree in Information Technology. 
                This website is a showcase of my journey, skills, and projects in web development. Feel free to explore my work and contact me if you want to collaborate or learn more!</p>
+            <button id="alert-button">Click Me!</button> <!-- Button to trigger JavaScript -->
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Jillian McDonald. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript code embedded directly in the page -->
+    <script>
+        // Function to display an alert when the button is clicked
+        document.getElementById('alert-button').onclick = function() {
+            alert('Hello! Welcome to my portfolio.');
+        }
+    </script>
 </body>
 </html>
