@@ -1,22 +1,31 @@
-// Import the Express module
+// server.js
+
+// Import Express and initialize the app
 const express = require('express');
 const app = express();
-const port = 3000;
 
-// Middleware to serve static files from the "public" folder
-app.use(express.static('public'));
+// Middleware to parse URL-encoded data (data from HTML forms)
+app.use(express.urlencoded({ extended: true }));
 
-// Middleware to parse JSON bodies (for form submissions)
-app.use(express.json());
+// Serve static files (HTML, CSS, etc.) from the current directory
+app.use(express.static(__dirname));
 
-// Route to handle form submissions
+// Route to handle form submission
 app.post('/submit-form', (req, res) => {
-    const { name, phone, email } = req.body; // Extract form data
-    console.log('Form data received:', { name, phone, email }); // Log form data to the console
-    res.send('Form submitted successfully!'); // Send success message to the client
+    // Extract data from the form using req.body
+    const name = req.body.name;
+    const phone = req.body.phone;
+    const email = req.body.email;
+
+    // Log the data to the console (this can later be used for further processing)
+    console.log(`Form submission received! Name: ${name}, Phone: ${phone}, Email: ${email}`);
+
+    // Send a response back to the client
+    res.send("Thank you for your submission, " + name + "!");
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+// Start the server on port 3000
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
