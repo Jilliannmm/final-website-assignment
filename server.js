@@ -1,54 +1,18 @@
-// Import required modules
 const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-
-// Initialize the Express app
+const path = require('path');
 const app = express();
+const port = 3000;
 
-// Middleware to serve static files and parse request body
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Serve static files (like HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to handle form submission
+// POST route to handle form submissions
 app.post('/send', (req, res) => {
-    const { name, phone, email } = req.body;
-
-    // Set up Nodemailer for email transport
-    const transporter = nodemailer.createTransport({
-        service: 'Gmail', // Or use any other service provider
-        auth: {
-            user: 'your-email@gmail.com',      // Replace with your email
-            pass: 'your-email-password'        // Replace with your email password
-        }
-    });
-
-    // Set up email data
-    const mailOptions = {
-        from: email,
-        to: 'your-email@gmail.com',           // Replace with your receiving email
-        subject: 'New Contact Form Submission',
-        text: `You have a new contact form submission from:
-               Name: ${name}
-               Phone: ${phone}
-               Email: ${email}`
-    };
-
-    // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-            res.status(500).send('Error sending message.');
-        } else {
-            console.log('Message sent: %s', info.messageId);
-            res.status(200).send('Message sent successfully.');
-        }
-    });
+    // Your code for handling the form submission goes here
+    res.send("Form submitted!");
 });
 
-// Set up the server to listen on port 3000
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });
